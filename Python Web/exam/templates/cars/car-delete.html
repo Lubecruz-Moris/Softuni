@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+{% include 'head.html' %}
+
+<body>
+<div id="box">
+
+    <header>
+        <!-- Navigation Bar -->
+        <h1><a class="index-navigation" href="{% url 'index' %}"><span>C</span>ARS <span>C</span>OLLECTION</a></h1>
+        <nav>
+            {% include 'nav_profile.html' %}
+        </nav>
+    </header>
+
+    <!-- edit game form -->
+    <section id="delete-page" class="auth">
+        <form id="delete" method="post" action="{% url 'car delete' pk=car.pk %}">
+            <div class="container">
+
+                <h1>Delete Car</h1>
+
+                {{ form }}
+                {% csrf_token %}
+
+                <input class="btn submit" type="submit" value="Delete Car">
+
+            </div>
+        </form>
+    </section>
+
+    <!-- footer -->
+    <footer>
+        &copy;SoftUni Team 2022. All rights reserved.
+    </footer>
+
+</div>
+</body>
+</html>
